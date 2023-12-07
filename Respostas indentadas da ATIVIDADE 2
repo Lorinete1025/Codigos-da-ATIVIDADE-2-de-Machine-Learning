@@ -45,7 +45,7 @@ print(f'Tom de cinza mínimo: {minimo_gray}')
 
 LINK PARA O DONWLOAD DA IMAGEM PARA TESTAR ESTE CÓDIGO: https://radiologiafacipe.wordpress.com/2016/04/07/ressonancia-e-brincos-nao-combinam/
 
-# 1º - Faça a leitura de uma imagem de entrada 2D colorida qualquer e aplique o filtro da média, mediana e gaussiano na imagem de entrada. Mostre os
+# 2º - Faça a leitura de uma imagem de entrada 2D colorida qualquer e aplique o filtro da média, mediana e gaussiano na imagem de entrada. Mostre os
 resultados de cada filtro por meio da biblioteca matplotlib. #
 
 import cv2
@@ -79,4 +79,3 @@ plt.imshow(imagem_gaussiana)
 plt.title('Filtro Gaussiano')
 
 plt.show()
-
