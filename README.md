@@ -1,0 +1,82 @@
+# Codigos-da-ATIVIDADE-2-de-Machine-Learning | Aluna: Lóren Dutra Silva
+O presente repositório público tem como principal objetivo obter a nota da ATIVIDADE 2 do curso de Machine Learning (Bootcamp | Avanti)
+
+- O link abaixo irá direcionar para as respostas que foram identadas no Google Colaboratory 🠗
+https://colab.research.google.com/drive/1gx3rVWCpAu18XdJVb9WjI0CVUa5VZLEb?usp=sharing
+
+- Ou, as respostas podem ser vistas abaixo e o download das imagens utilizadas na 1º e 2º questão também 🠗
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+LINK PARA O DONWLOAD DA IMAGEM PARA TESTAR ESTE CÓDIGO: https://br.pinterest.com/pin/583145851728379683/
+
+# 1º - Faça a leitura de uma imagem 2D colorida qualquer e apresente as informações listadas abaixo por meio da função print().
+para imprimir a altura, largura, canais de cor, tipo de dado, tom de cinza máximo, tom de cinza médio, tom de cinza mínimo. #
+
+import cv2
+from google.colab.patches import cv2_imshow
+from matplotlib import pyplot as plt
+import numpy as np
+
+caminho_da_imagem = '/content/Imagem 2D_Pókemon Eevee (1).jpeg'
+image = cv2.imread(caminho_da_imagem)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+height, width, channels = image.shape[:3]
+gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+tipo_dado = image.dtype
+maximo_gray = np.max(gray_image)
+medio_gray = np.mean(gray_image)
+minimo_gray = np.min(gray_image)
+plt.imshow(image)
+plt.axis('off')
+plt.show()
+
+print(f'Altura: {height} pixels')
+print(f'Largura: {width} pixels')
+print(f'Canais de cor: {channels}')
+print(f'Tipo de dado: {tipo_dado}')
+print(f'Tom de cinza máximo: {maximo_gray}')
+print(f'Tom de cinza médio: {medio_gray}')
+print(f'Tom de cinza mínimo: {minimo_gray}')
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+LINK PARA O DONWLOAD DA IMAGEM PARA TESTAR ESTE CÓDIGO: https://radiologiafacipe.wordpress.com/2016/04/07/ressonancia-e-brincos-nao-combinam/
+
+# 1º - Faça a leitura de uma imagem de entrada 2D colorida qualquer e aplique o filtro da média, mediana e gaussiano na imagem de entrada. Mostre os
+resultados de cada filtro por meio da biblioteca matplotlib. #
+
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+caminho_da_imagem = '/content/Imagem 2D_Ressonancia de um cranio.jpeg'
+imagem = cv2.imread(caminho_da_imagem)
+imagem_rgb = cv2.cvtColor(imagem, cv2.COLOR_BGR2RGB)
+
+imagem_media = cv2.blur(imagem_rgb, (5, 5))
+imagem_mediana = cv2.medianBlur(imagem_rgb, 5)
+imagem_gaussiana = cv2.GaussianBlur(imagem_rgb, (5, 5), 0)
+
+plt.figure(figsize=(10, 7))
+
+plt.subplot(2, 2, 1)
+plt.imshow(imagem_rgb)
+plt.title('Imagem Original')
+
+plt.subplot(2, 2, 2)
+plt.imshow(imagem_media)
+plt.title('Filtro da Média')
+
+plt.subplot(2, 2, 3)
+plt.imshow(imagem_mediana)
+plt.title('Filtro da Mediana')
+
+plt.subplot(2, 2, 4)
+plt.imshow(imagem_gaussiana)
+plt.title('Filtro Gaussiano')
+
+plt.show()
+
